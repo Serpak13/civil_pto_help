@@ -17,7 +17,7 @@ enum Type: int
      * @param int $value
      * @return string
      */
-    public function getName(int $value): string
+    public static function getName(int $value): string
     {
         return match ($value) {
             self::QUALITY_CERTIFICATE->value => __('quality_document.type.quality_certificate'),
