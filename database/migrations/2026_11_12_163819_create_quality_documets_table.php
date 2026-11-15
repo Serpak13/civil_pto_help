@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('quality_documents', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            //-- TODO модель материала и связать с сертификатом, возможно даже many-to-many, разобраться
             $table->integer('type');
             $table->string('number');
             $table->date('date_from');
-            $table->date('date_to');
-            //-- $table->string('file_id'); TODO сделать модельку файла с миграцией и связь и настроить хранение файлов
-            $table->text('description');
+            $table->date('date_to')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
