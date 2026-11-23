@@ -30,4 +30,9 @@ enum Unit: string
             default => __('material.unit.unknown')
         };
     }
+
+    public function label(): string
+    {
+        return self::getName($this->value);
+    }
 }

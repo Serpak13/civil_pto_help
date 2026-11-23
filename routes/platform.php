@@ -11,6 +11,8 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Material\MaterialEditScreen;
+use App\Orchid\Screens\Material\MaterialListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -101,4 +103,8 @@ Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.exampl
 Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
+//-- Материалы
+Route::screen('materials', MaterialListScreen::class)->name('platform.materials');
+Route::screen('materials/create', MaterialEditScreen::class)->name('platform.materials.create');
+Route::screen('materials/{material}/edit', MaterialEditScreen::class)->name('platform.materials.edit');
 // Route::screen('idea', Idea::class, 'platform.screens.idea');

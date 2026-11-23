@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property string $id
@@ -22,7 +24,9 @@ use Illuminate\Support\Carbon;
  */
 class Material extends Model
 {
-    use HasUuids;
+    use HasUuids,
+        AsSource, //-- нужен, чтобы орчид мог читать поля модели
+        Filterable; // -- нужен для сортировки фильтров
 
     protected $table = 'materials';
 
@@ -39,6 +43,10 @@ class Material extends Model
         'unit' => Unit::class,
     ];
 
+    protected $allowedSorts = [
+        'name',
+        'created_at',
+    ];
     /**
      * @return BelongsToMany
      */
